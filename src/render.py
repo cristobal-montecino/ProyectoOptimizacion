@@ -22,7 +22,6 @@ def render(viewport, points, target=None, **_config):
     config.update(_config)
        
     fig_ax = config['fig,ax']
-     
     if fig_ax is None:
         figsize = config['figsize']
         fig, ax = plt.subplots(figsize=figsize)
@@ -58,7 +57,7 @@ def render(viewport, points, target=None, **_config):
     if is_new:
         on_click = config['on_click']            
         if on_click is not None:
-            args = {'ax': ax, 'fig': fig, 'viewport': viewport}
+            args = {'fig,ax': (fig, ax), 'viewport': viewport}
             args.update(_config)
             fig.canvas.mpl_connect('button_press_event', lambda event: on_click(event, args))
     
