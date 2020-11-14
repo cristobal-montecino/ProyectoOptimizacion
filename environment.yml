@@ -3,10 +3,25 @@ channels:
   - conda-forge
   - defaults
 dependencies:
+  - ipykernel=5.3.4=py38h5ca1d4c_0
+  - ipympl=0.5.8=pyh9f0ad1d_0
+  - ipython=7.19.0=py38hb070fc8_0
+  - ipython_genutils=0.2.0=py38_0
+  - ipywidgets=7.5.1=pyh9f0ad1d_1
+  - jupyter_client=6.1.7=py_0
+  - jupyter_contrib_core=0.3.3=py_2
+  - jupyter_core=4.6.3=py38_0
   - jupyter_nbextensions_configurator=0.4.1=py38h32f6830_2
   - jupyterlab=2.2.6=py_0
+  - jupyterlab_pygments=0.1.2=py_0
+  - jupyterlab_server=1.2.0=py_0
   - matplotlib=3.3.2=0
   - matplotlib-base=3.3.2=py38h817c723_0
+  - nodejs=15.2.0=h914e61d_0
+  - notebook=6.1.4=py38_0
   - numpy=1.19.2=py38h54aff64_0
   - numpy-base=1.19.2=py38hfa32c7d_0
   - python=3.8.5=h7579374_1
+  - python-dateutil=2.8.1=py_0
+  - python_abi=3.8=1_cp38
+  - widgetsnbextension=3.5.1=py38h32f6830_4
