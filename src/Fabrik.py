@@ -47,9 +47,6 @@ def fabrik(inpt, tar, lengths, tol):
     elif tol<=0:
         raise ValueError("Error: La tolerancia debe ser un valor positivo!")
     
-    #lengthList=list()
-    #for i in range(len(inpt)-1):
-    #    lengthList.append(dist(inpt[i], inpt[i+1]))
     lengthList = lengths
     if sum(lengthList)<dist(tar, inpt[0]):
         return [inpt[0]]+[linearAdjust(tar, inpt[0], sum(lengths[:i])) for i in range(1, len(lengths))]
