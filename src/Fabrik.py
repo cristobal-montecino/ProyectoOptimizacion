@@ -40,16 +40,19 @@ def fabrik_iterate(inpt, tar, lengthList):
     return inpt
 
 #Fabrik proper
-def fabrik(inpt, tar, tol):
+def fabrik(inpt, tar, lengths, tol):
     if len(inpt)<2:
         raise ValueError("Error: El actuador no tiene suficientes nodos!")
     
     elif tol<=0:
         raise ValueError("Error: La tolerancia debe ser un valor positivo!")
     
-    lengthList=list()
-    for i in range(len(inpt)-1):
-        lengthList.append(dist(inpt[i], inpt[i+1]))
+    #lengthList=list()
+    #for i in range(len(inpt)-1):
+    #    lengthList.append(dist(inpt[i], inpt[i+1]))
+    lengthList = lengths
+    if sum(lengthList)<dist(tar, inpt[0]):
+        return [inpt[0]]+[linearAdjust(tar, inpt[0], sum(lengths[:i])) for i in range(1, len(lengths))]
     j=0
     while dist(inpt[-1], tar)>tol:
         if DEBUG:
@@ -57,5 +60,5 @@ def fabrik(inpt, tar, tol):
         inpt=fabrik_iterate(inpt, tar, lengthList)
         j=j+1
         if j>CONSTRAINT:
-            raise RuntimeError("Error: demaciadas iteraciones sin alcanzar la tolerancia!")
+            raise RuntimeError("Error: demasiadas iteraciones sin alcanzar la tolerancia!")
     return inpt

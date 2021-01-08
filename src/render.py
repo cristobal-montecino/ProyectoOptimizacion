@@ -13,7 +13,7 @@ DEFAULT_RENDER_CONFIG = {
     'point_color': 'blue',
     'figsize': (10, 10),
     'on_click': None,
-    'fig_ax': None,
+    'fig,ax': None,
 }
 
 def render(viewport, points, target=None, **_config):
@@ -21,7 +21,7 @@ def render(viewport, points, target=None, **_config):
     config.update(DEFAULT_RENDER_CONFIG)
     config.update(_config)
        
-    fig_ax = config['fig_ax']
+    fig_ax = config['fig,ax']
     if fig_ax is None:
         figsize = config['figsize']
         fig, ax = plt.subplots(figsize=figsize)
@@ -57,7 +57,7 @@ def render(viewport, points, target=None, **_config):
     if is_new:
         on_click = config['on_click']            
         if on_click is not None:
-            args = {'fig_ax': (fig, ax), 'viewport': viewport}
+            args = {'fig,ax': (fig, ax), 'viewport': viewport}
             args.update(_config)
             fig.canvas.mpl_connect('button_press_event', lambda event: on_click(event, args))
     
